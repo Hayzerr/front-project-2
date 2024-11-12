@@ -102,7 +102,7 @@ const displayForecast = (data) => {
   data.list.slice(0, 8).forEach(item => {
     const date = new Date(item.dt * 1000);
     const hour = date.getHours();
-    const period = hour > 12 ? `${hour - 12} PM` : `${hour} AM`;
+    const period = hour;
 
     const hourlyDiv = document.createElement('div');
     hourlyDiv.classList.add('flex', 'flex-col', 'items-center', 'bg-blue-100', 'rounded-lg', 'p-2', 'w-20');
