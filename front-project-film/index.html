@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Explorer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-indigo-50 to-white min-h-screen flex flex-col">
+    <header class="bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4 flex flex-col items-center">
+            <h1 class="text-4xl font-extrabold mb-3">Movie Explorer</h1>
+            <div class="flex w-full max-w-lg">
+                <input type="text" id="search-input" class="flex-1 px-4 py-3 rounded-l-full text-gray-900 focus:outline-none focus:ring-2 focus:ring-purple-300" placeholder="Search for movies...">
+                <button id="search-btn" class="bg-purple-500 text-white px-6 py-3 rounded-r-full font-bold hover:bg-purple-600 transition duration-300">Search</button>
+            </div>
+            <div id="suggestions" class="w-full text-black max-w-lg bg-white mt-2 rounded-lg shadow-lg hidden"></div>
+            <button id="watchlist-btn" class="mt-4 bg-white text-purple-600 font-semibold px-5 py-2 rounded-lg shadow hover:bg-purple-50 transition duration-300">View Watchlist</button>
+        </div>
+    </header>
+
+    <main class="flex-1 container mx-auto px-4 py-8">
+        <div class="flex justify-end mb-4">
+            <label for="sort-select" class="mr-2 text-gray-700 font-semibold">Sort by:</label>
+            <select id="sort-select" class="px-4 py-2 border rounded shadow focus:outline-none focus:ring-2 focus:ring-purple-300">
+                <option value="popularity.desc">Popularity</option>
+                <option value="release_date.desc">Release Date</option>
+                <option value="vote_average.desc">Rating</option>
+            </select>
+        </div>
+        <div id="movie-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </main>
+
+    <div id="movie-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl shadow-2xl overflow-auto max-h-full w-11/12 md:w-3/4 lg:w-2/3">
+            <div class="flex justify-between items-center border-b p-4">
+                <h2 class="text-xl font-bold text-gray-800">Movie Details</h2>
+                <button id="close-modal" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div id="modal-content" class="p-6"></div>
+        </div>
+    </div>
+
+    <div id="watchlist-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white rounded-xl shadow-2xl overflow-auto max-h-full w-11/12 md:w-3/4 lg:w-2/3">
+            <div class="flex justify-between items-center border-b p-4">
+                <h2 class="text-xl font-bold text-gray-800">Your Watchlist</h2>
+                <button id="close-watchlist" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div id="watchlist-content" class="p-6"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
